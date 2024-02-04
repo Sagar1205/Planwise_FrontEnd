@@ -17,11 +17,10 @@ const ChangePasswordModal = ({ isOpen, onClose, handleSubmit, error, setError })
 //   console.log(data)
 
   const handleCombinedClick = (e) => {
-    console.log(error)
     e.preventDefault();
     handleSubmit(data);
-    // onClose();
     setError("");
+    // onClose();
   };
 
   const handleCancel = () => {
@@ -42,11 +41,11 @@ const ChangePasswordModal = ({ isOpen, onClose, handleSubmit, error, setError })
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 px-16 sm:px-0">
           {/* Foggy background */}
-          <div className="fixed inset-0 bg-black opacity-50"></div>
+          <div className="fixed inset-0 bg-gray-800 opacity-60"></div>
 
           {/* Modal content */}
           <div className="bg-slate-900 text-lg font-semibold shadow-md z-10 text-white w-full sm:max-w-md p-8 mx-auto rounded-3xl">
-            <form>
+            <form className="flex flex-col gap-6">
               <div>
                 <div className="mb-4">
                   <label className="block mb-1" htmlFor="password">

@@ -13,7 +13,7 @@ const DeleteModal = ({ isOpen, onClose, handleDelete }) => {
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Foggy background */}
-          <div className="fixed inset-0 bg-black opacity-50"></div>
+          <div className="fixed inset-0 bg-gray-800 opacity-60"></div>
 
           {/* Modal content */}
           <div className="bg-slate-900 p-8 rounded-xl text-lg font-semibold shadow-md z-10 text-white sm:w-[28%] h-1/4 flex flex-col gap-1">

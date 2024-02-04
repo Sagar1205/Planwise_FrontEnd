@@ -94,7 +94,7 @@ const CurrentTasks = () => {
   };
 
   const handleUpdateDone = async (taskId, task) => {
-    console.log(task)
+    // console.log(task)
     const data = await fetchTaskOne(taskId);
     // console.log(data.task);
     try {
@@ -232,7 +232,7 @@ const CurrentTasks = () => {
               </div>
               <div className="flex justify-center">
                 <button
-                  className="bg-teal-600 text-white py-2 px-4 rounded-xl"
+                  className="bg-teal-600 text-white py-2 px-4 rounded-xl hover:bg-teal-700"
                   onClick={() => openAddModal()}
                 >
                   Add Todo
@@ -240,8 +240,8 @@ const CurrentTasks = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between flex-col md:flex-row gap-8 w-full min-h-[28rem]">
-            <div className="bg-slate-700 sm:w-1/3 rounded-xl flex-1">
+          <div className="flex justify-between flex-col md:flex-row gap-8 w-full ">
+            <div className="bg-slate-700 sm:w-1/3 rounded-xl flex-1 min-h-[28rem]">
               <Today
                 openAddModal={openAddModal}
                 tasks={tasks}
@@ -253,7 +253,7 @@ const CurrentTasks = () => {
                 filteredTasks={filteredTasks}
               />
             </div>
-            <div className="bg-slate-700 sm:w-1/3 rounded-xl flex-1">
+            <div className="bg-slate-700 sm:w-1/3 rounded-xl flex-1 min-h-[28rem]">
               <ThisWeek
                 openAddModal={openAddModal}
                 tasks={tasks}
@@ -265,7 +265,7 @@ const CurrentTasks = () => {
                 filteredTasks={filteredTasks}
               />
             </div>
-            <div className="bg-slate-700 sm:w-1/3 rounded-xl flex-1">
+            <div className="bg-slate-700 sm:w-1/3 rounded-xl flex-1 min-h-[28rem]">
               <Eventually
                 openAddModal={openAddModal}
                 tasks={tasks}

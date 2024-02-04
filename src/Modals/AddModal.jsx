@@ -1,6 +1,8 @@
 import { React, useState, useRef } from "react";
 import { useUser } from "../contexts/UserContext";
 // import { Calender } from "../components/Icons";
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 
 const AddModal = ({ isOpen, onClose, handleSubmit }) => {
   const [inputTask, setInputTask] = useState("");
@@ -15,11 +17,6 @@ const AddModal = ({ isOpen, onClose, handleSubmit }) => {
   const handleChangeTask = (e) => {
     const { name, value } = e.target;
     setInputTask(value);
-  };
-
-  const handleChangeDate = (e) => {
-    const { name, value } = e.target;
-    setDueDate(value);
   };
 
   const inputData = {
@@ -56,14 +53,12 @@ const AddModal = ({ isOpen, onClose, handleSubmit }) => {
     onClose();
   };
 
-  
-
   return (
     <>
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Foggy background */}
-          <div className="fixed inset-0 bg-black opacity-50"></div>
+          <div className="fixed inset-0 bg-gray-800 opacity-60"></div>
 
           {/* Modal content */}
           <div className="bg-slate-900 p-8 rounded-xl text-lg font-semibold shadow-md z-10 text-white sm:w-1/3 sm:h-[47%] flex flex-col gap-6">
@@ -80,19 +75,23 @@ const AddModal = ({ isOpen, onClose, handleSubmit }) => {
             </div>
             <div className="flex flex-col gap-2">
               <p>When do you want to do this?</p>
-              <div className="sm:w-[54%] border-2 rounded-xl">
-                <input
+              {/* <input
                   type="date"
                   className="bg-transparent w-full px-2 text-white outline-none text-sm"
                   name="date"
                   required
                   onChange={handleChangeDate}
-                />
-              </div>
+                /> */}
+              <DatePicker
+                onChange={(date) => setDueDate(date)}
+                className="bg-transparent sm:w-[54%] border-2 rounded-xl outline-none px-2 py-1"
+                selected={dueDate}
+              />
             </div>
             <div className="flex gap-2">
               <div>
                 <button
+                id="save"
                   className={`mt-4 p-2 text-white rounded-md bg-teal-600 ${
                     inputTask.length === 0 || dueDate === "" ? "opacity-50" : ""
                   }`}

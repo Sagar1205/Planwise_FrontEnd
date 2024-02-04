@@ -18,7 +18,7 @@ const ThisWeek = ({
         <div className="text-white font-bold text-lg">This Week</div>
       </div>
       <div>
-        {tasksForThisWeek.length === 0 ? (
+        {tasksForThisWeek.length === 0 && !searchQuery ? (
           <>
             <div className="text-center flex flex-col p-[19%] gap-2 w-full">
               <p className="text-gray-500">
@@ -26,7 +26,7 @@ const ThisWeek = ({
               </p>
               <div className="w-2rem">
                 <button
-                  className="bg-gray-200 rounded py-1 px-2"
+                  className="bg-gray-400 rounded py-1 px-2 hover:bg-slate-900 hover:text-white"
                   onClick={() => openAddModal()}
                 >
                   Add Todo
@@ -63,15 +63,17 @@ const ThisWeek = ({
                         }}
                       >
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
+                          <div
+                            className="flex items-center gap-2"
+                            onClick={() =>
+                              handleUpdateDone(task._id, task.task)
+                            }
+                          >
                             <div className="flex items-center">
                               <button
                                 className={`rounded-full border-2 h-5 w-5 ${
                                   task.done ? "bg-teal-600" : ""
                                 }`}
-                                onClick={() =>
-                                  handleUpdateDone(task._id, task.task)
-                                }
                               >
                                 {/* {task.done && (
                                         <span className="bg-teal-600 text-white text-xs h-5 w-5 rounded-full">
@@ -140,15 +142,17 @@ const ThisWeek = ({
                           }}
                         >
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
+                            <div
+                              className="flex items-center gap-2"
+                              onClick={() =>
+                                handleUpdateDone(task._id, task.task)
+                              }
+                            >
                               <div className="flex items-center">
                                 <button
                                   className={`rounded-full border-2 h-5 w-5 ${
                                     task.done ? "bg-teal-600" : ""
                                   }`}
-                                  onClick={() =>
-                                    handleUpdateDone(task._id, task.task)
-                                  }
                                 >
                                   {/* {task.done && (
                                         <span className="bg-teal-600 text-white text-xs h-5 w-5 rounded-full">

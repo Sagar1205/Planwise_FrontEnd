@@ -45,6 +45,7 @@ const HomePage = () => {
       });
       console.log("Password updated successful:");
       setIsChangePasswordModalOpen(false);
+      setShowDropdown(false);
     } catch (error) {
       setError(error.response.data.error);
       console.error("Error updating password:", error.response.data.error);
@@ -61,7 +62,9 @@ const HomePage = () => {
             <div>
               <button
                 className={` ${
-                  view === "default" ? "bg-teal-600" : "border-2"
+                  view === "default"
+                    ? "bg-teal-600 hover:bg-teal-700"
+                    : "border-2 hover:bg-slate-700"
                 } text-white h-10 px-3 rounded-l-xl flex items-center`}
                 onClick={() => handleViewChange("default")}
               >
@@ -71,7 +74,9 @@ const HomePage = () => {
             <div>
               <button
                 className={`${
-                  view === "beforeToday" ? "bg-teal-600" : "border-2"
+                  view === "beforeToday"
+                    ? "bg-teal-600 hover:bg-teal-700"
+                    : "border-2 hover:bg-slate-700"
                 } text-white h-10 px-3 rounded-r-xl flex items-center`}
                 onClick={() => handleViewChange("beforeToday")}
               >
@@ -80,23 +85,26 @@ const HomePage = () => {
             </div>
           </div>
           <div className="text-white">
-            <div className="flex items-center gap-1 text-lg">
-              Welcome {currentUser.username}{" "}
-              <button onClick={() => setShowDropdown(!showDropdown)}>
+            <div
+              className="flex items-center gap-1 text-lg cursor-pointer"
+              onClick={() => setShowDropdown(!showDropdown)}
+            >
+              Welcome {currentUser.username.toUpperCase()}
+              <button>
                 <ChevronDown />
               </button>
             </div>
             {showDropdown && (
-              <div className="absolute sm:right-2 mt-2 py-2 bg-slate-700 rounded-md shadow-xl z-20 pr-2 flex flex-col gap-2 items-start">
+              <div className="absolute sm:right-2 mt-2 py-2 bg-slate-700 rounded-md shadow-xl z-20 p-2 flex flex-col gap-1 items-start">
                 <button
                   onClick={handleLogout}
-                  className="block text-sm text-white pl-4"
+                  className="block text-lg text-white w-full hover:bg-slate-500 rounded-xl py-[0.5] px-2"
                 >
                   Log Out
                 </button>
                 <button
                   onClick={() => setIsChangePasswordModalOpen(true)}
-                  className="block text-sm text-white pl-4"
+                  className="block text-lg text-white w-full hover:bg-slate-500 py-[0.5] rounded-xl px-2"
                 >
                   Change Password
                 </button>
@@ -112,7 +120,10 @@ const HomePage = () => {
       </div>
       <ChangePasswordModal
         isOpen={isChangePasswordModalOpen}
-        onClose={() => setIsChangePasswordModalOpen(false)}
+        onClose={() => {
+          setIsChangePasswordModalOpen(false);
+          setShowDropdown(false);
+        }}
         handleSubmit={handleChangePassword}
         error={error}
         setError={setError}
