@@ -176,6 +176,7 @@ const CurrentTasks = () => {
           weekStartsOn: 1,
         });
         const taskDueDate = parseISO(task.dueDate);
+        // console.log(taskDueDate)
 
         // Check if the task's dueDate is within the current week
         const isDueInCurrentWeek =

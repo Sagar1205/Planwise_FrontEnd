@@ -64,7 +64,7 @@ const ThisWeek = ({
                       >
                         <div className="flex items-center justify-between">
                           <div
-                            className="flex items-center gap-2"
+                            className="flex items-center gap-2 cursor-pointer"
                             onClick={() =>
                               handleUpdateDone(task._id, task.task)
                             }
@@ -107,7 +107,7 @@ const ThisWeek = ({
                           </div>
                         </div>
                         <div className="text-[0.7rem] font-thin flex justify-end text-gray-500">
-                          Due date : {task.dueDate}
+                          Due date : {format(task.dueDate, "yyyy-MM-dd")}
                         </div>
                       </li>
                     )
@@ -143,14 +143,14 @@ const ThisWeek = ({
                         >
                           <div className="flex items-center justify-between">
                             <div
-                              className="flex items-center gap-2"
+                              className="flex items-center gap-4 cursor-pointer"
                               onClick={() =>
                                 handleUpdateDone(task._id, task.task)
                               }
                             >
                               <div className="flex items-center">
                                 <button
-                                  className={`rounded-full border-2 h-5 w-5 ${
+                                  className={`rounded-full border-2 ${
                                     task.done ? "bg-teal-600" : ""
                                   }`}
                                 >
@@ -170,7 +170,7 @@ const ThisWeek = ({
                             <div className="hidden group-hover:flex ">
                               <div className="font-bold ">
                                 {/* &#8285; */}
-                                <div className="flex gap-2">
+                                <div className="flex gap-4">
                                   <div>
                                     <button
                                       onClick={() => openDeleteModal(task)}
@@ -196,7 +196,7 @@ const ThisWeek = ({
                   })}
 
                   {tasksForThisWeek.length != 0 && (
-                    <div className="flex justify-center items-center p-[20%]">
+                    <div className="flex justify-center items-center p-[7%]">
                       <button
                         className="hover:text-slate-900 text-gray-200"
                         onClick={openAddModal}

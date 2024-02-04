@@ -30,7 +30,7 @@ export const Delete = () => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-4 h-4 font-bold"
+        className="w-4 h-4 "
       >
         <path
           strokeLinecap="round"

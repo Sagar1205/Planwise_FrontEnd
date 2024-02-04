@@ -60,7 +60,7 @@ const Eventually = ({
                       >
                         <div className="flex items-center justify-between">
                           <div
-                            className="flex items-center gap-2"
+                            className="flex items-center gap-2 cursor-pointer"
                             onClick={() =>
                               handleUpdateDone(task._id, task.task)
                             }
@@ -134,7 +134,7 @@ const Eventually = ({
                         >
                           <div className="flex items-center justify-between">
                             <div
-                              className="flex items-center gap-2"
+                              className="flex items-center gap-4 cursor-pointer"
                               onClick={() =>
                                 handleUpdateDone(task._id, task.task)
                               }
@@ -161,7 +161,7 @@ const Eventually = ({
                             <div className="hidden group-hover:flex ">
                               <div className="font-bold ">
                                 {/* &#8285; */}
-                                <div className="flex gap-2">
+                                <div className="flex gap-4">
                                   <div>
                                     <button
                                       onClick={() => openDeleteModal(task)}
@@ -179,7 +179,7 @@ const Eventually = ({
                             </div>
                           </div>
                           <div className="text-[0.7rem] font-thin flex justify-end text-gray-500">
-                            Due date : {task.dueDate}
+                            Due date : {format(task.dueDate, "yyyy-MM-dd")}
                           </div>
                         </li>
                       );

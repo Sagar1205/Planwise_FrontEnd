@@ -52,7 +52,7 @@ const Today = ({
                         }}
                       >
                         <div
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 cursor-pointer"
                           onClick={() => {
                             handleUpdateDone(task._id, task.task);
                             task.done = !task.done;
@@ -71,14 +71,16 @@ const Today = ({
                                     )} */}
                             </button>
                           </div>
-                          <div className={`${task.done ? "line-through" : ""}`}>
+                          <div
+                            className={` ${task.done ? "line-through" : ""}`}
+                          >
                             {task.task}
                           </div>
                         </div>
                         <div className="hidden group-hover:flex ">
                           <div className="font-bold ">
                             {/* &#8285; */}
-                            <div className="flex gap-2">
+                            <div className="flex gap-4">
                               <div>
                                 <button onClick={() => openDeleteModal(task)}>
                                   <Delete />
@@ -110,12 +112,12 @@ const Today = ({
                       }}
                     >
                       <div
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 cursor-pointer"
                         onClick={() => handleUpdateDone(task._id, task.task)}
                       >
                         <div className="flex items-center">
                           <button
-                            className={`rounded-full border-2 h-5 w-5 ${
+                            className={`rounded-full border-2 ${
                               task.done ? "bg-teal-600" : ""
                             }`}
                           >
@@ -141,7 +143,7 @@ const Today = ({
                       <div className="hidden group-hover:flex">
                         <div className="font-bold ">
                           {/* &#8285; */}
-                          <div className="flex gap-2">
+                          <div className="flex gap-4">
                             <div>
                               <button onClick={() => openDeleteModal(task)}>
                                 <Delete />
