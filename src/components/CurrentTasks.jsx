@@ -11,7 +11,7 @@ import Eventually from "./Eventually";
 import { useUser } from "../contexts/UserContext";
 
 const CurrentTasks = () => {
-  const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
 
   const today = new Date();
   const options = {
@@ -141,7 +141,6 @@ const CurrentTasks = () => {
   };
 
   const handleAddTodo = async (taskData, taskId) => {
-    console.log(taskData);
     if (taskId) {
       handleUpdateTask(taskId, taskData);
     } else {
@@ -152,11 +151,12 @@ const CurrentTasks = () => {
         fetchTasks();
       } catch (error) {
         console.error("Error adding todo:", error);
+        // console.log(error.response.data.error);
       }
     }
   };
 
-  const filteredTasks = tasks.filter((task) =>
+  const filteredTasks = tasks && tasks.filter((task) =>
     task.task.toLowerCase().includes(searchQuery.toLowerCase())
   );
 

@@ -15,7 +15,7 @@ const ExpiredTasks = () => {
   const [expiredTasks, setExpiredTasks] = useState("");
 
   const { currentUser } = useUser();
-  const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
 
   const openEditModal = (taskData) => {
     setInitialTaskData(taskData);

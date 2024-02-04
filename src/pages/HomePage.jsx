@@ -9,7 +9,7 @@ import { ChevronDown } from "../components/Icons";
 import ChangePasswordModal from "../Modals/ChangePasswordModal";
 
 const HomePage = () => {
-  const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
 
   const [view, setView] = useState("default"); // State to manage the current view

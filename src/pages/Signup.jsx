@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+  
   const [formData, setFormData] = useState({
     userName: "",
     email: "",
@@ -22,12 +24,8 @@ const Signup = () => {
   };
 
   const handleRegistration = async () => {
-    // console.log(formData);
     try {
-      const res = await axios.post(
-        "http://localhost:3001/auth/register",
-        formData
-      );
+      const res = await axios.post(`${baseURL}/auth/register`, formData);
       setFormData({
         userName: "",
         email: "",
@@ -47,7 +45,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-slate-900 text-white flex flex-col justify-center px-16 sm:px-0 items-center">
+    <div className="w-full min-h-screen bg-slate-900 text-white flex flex-col justify-center px-12 sm:px-0 items-center">
       <div className="w-full sm:max-w-md p-8 mx-auto bg-slate-700 rounded-3xl">
         <h2 className="mb-12 text-center text-5xl font-extrabold">Sign Up</h2>
         <form className="flex flex-col gap-6">

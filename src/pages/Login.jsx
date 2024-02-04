@@ -6,7 +6,7 @@ import { useUser } from "../contexts/UserContext";
 import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
-  const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    // console.log(formData);
+    console.log("Base URL:", import.meta.env.VITE_API_BASE_URL);
     try {
       const res = await axios.post(`${baseURL}/auth/login`, formData);
       if (res.data) {
@@ -50,6 +50,7 @@ const Login = () => {
     } catch (error) {
       setError(error.response.data.error);
       console.error("Error logging in:", error.response.data.error);
+      console.log(error)
     }
   };
 
@@ -62,7 +63,7 @@ const Login = () => {
 
 
   return (
-    <div className="w-full min-h-screen bg-slate-900 text-white flex flex-col justify-center items-center px-16 sm:px-0">
+    <div className="w-full min-h-screen bg-slate-900 text-white flex flex-col justify-center items-center px-12 sm:px-0">
       <div className="w-full sm:max-w-md p-8 mx-auto bg-slate-700 rounded-3xl">
         <h2 className="mb-12 text-center text-5xl font-extrabold">Welcome.</h2>
         <form className="flex flex-col gap-6">
