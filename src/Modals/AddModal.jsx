@@ -5,9 +5,10 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 
 const AddModal = ({ isOpen, onClose, handleSubmit }) => {
+  const date = new Date();
   const [inputTask, setInputTask] = useState("");
   const [done, setDone] = useState(false);
-  const [dueDate, setDueDate] = useState("");
+  const [dueDate, setDueDate] = useState(date);
   const [error, setError] = useState("");
 
   const { currentUser } = useUser();

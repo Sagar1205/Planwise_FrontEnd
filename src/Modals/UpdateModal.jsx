@@ -65,9 +65,9 @@ const UpdateModal = ({ isOpen, onClose, handleSubmit, initialTaskData }) => {
             <div className="flex flex-col gap-2">
               <p>When do you want to do this?</p>
               <DatePicker
-                onChange={(date) => setDueDate(date)}
+                onChange={(date) => setInputDueDate(date)}
                 className="bg-transparent sm:w-[54%] border-2 rounded-xl outline-none px-2 py-1"
-                selected={dueDate}
+                selected={inputDueDate}
               />
             </div>
             <div className="flex gap-2">
